@@ -24,9 +24,9 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "react": "^16.0.0",
-    "react-swipeable-views": "^0.13.9",
-    "styled-components": "^5.1.1"
+    "react": "^17.0.2",
+    "react-swipeable": "^6.2.0",
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -56,9 +56,9 @@
     "microbundle-crl": "^0.13.10",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.4",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "^3.4.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "^4.0.3",
     "typescript": "^3.7.5"
   },
   "files": [
@@ -72,7 +72,7 @@
     "react-tournaments"
   ],
   "dependencies": {
-    "styled-components": "^5.1.1",
-    "react-swipeable-views": "^0.13.9"
+    "react-swipeable": "^6.2.0",
+    "styled-components": "^5.3.3"
   }
 }

@@ -1,6 +1,6 @@
 import React, { Fragment, ReactNode } from 'react';
 import { Round, Bracket, SeedsList, RoundProps } from '../components/round';
-import SwipeableViews, { SwipeableViewsProps } from 'react-swipeable-views';
+import { useSwipeable } from 'react-swipeable';
 import useMedia from '../hooks/useMedia';
 import { renderSeed, renderTitle } from '../utils/renders';
 
@@ -65,12 +65,11 @@ const SingleElimination = ({
 
   if (isResponsive) {
     // Since SwipeableViewsProps have an issue that it uses ref inside of it, We need to remove ref from the object
-    const { ref, ...rest } = swipeableProps;
+    const swipeable = useSwipeable({});
+
     return (
       <Bracket className={bracketClassName} dir={rtl ? 'rtl' : 'ltr'} mobileBreakpoint={mobileBreakpoint}>
-        <SwipeableViews style={{ minHeight: '500px' }} axis={rtl ? 'x-reverse' : 'x'} {...rest}>
-          {data}
-        </SwipeableViews>
+        <div {...swipeable}>{data}</div>
       </Bracket>
     );
   }
