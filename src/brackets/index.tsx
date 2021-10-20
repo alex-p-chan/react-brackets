@@ -1,6 +1,6 @@
 import React, { Fragment, ReactNode } from 'react';
 import { Round, Bracket, SeedsList, RoundProps } from '../components/round';
-import { useSwipeable } from 'react-swipeable';
+import { useSwipeable, SwipeableProps } from 'react-swipeable';
 import useMedia from '../hooks/useMedia';
 import { renderSeed, renderTitle } from '../utils/renders';
 
@@ -23,7 +23,7 @@ export interface SingleEliminationProps {
   // The whole bracket className
   bracketClassName?: string;
   /** {@link https://github.com/oliviertassinari/react-swipeable-views} to read about it's props  */
-  swipeableProps?: SwipeableViewsProps;
+  swipeableProps?: SwipeableProps;
   /**
    * @param {ReactNode} title string or component passed with each round
    * @param {number} round the current round index
@@ -65,7 +65,7 @@ const SingleElimination = ({
 
   if (isResponsive) {
     // Since SwipeableViewsProps have an issue that it uses ref inside of it, We need to remove ref from the object
-    const swipeable = useSwipeable({});
+    const swipeable = useSwipeable(swipeableProps);
 
     return (
       <Bracket className={bracketClassName} dir={rtl ? 'rtl' : 'ltr'} mobileBreakpoint={mobileBreakpoint}>
