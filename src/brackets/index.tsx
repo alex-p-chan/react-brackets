@@ -49,7 +49,7 @@ const SingleElimination = ({
 }: SingleEliminationProps) => {
   // Checking responsive size
   const isResponsive = useMedia(mobileBreakpoint);
-
+  const swipeable = useSwipeable(swipeableProps);
   const data = rounds.map((round, roundIdx) => (
     <Round key={roundIdx} className={roundClassName} mobileBreakpoint={mobileBreakpoint}>
       {round.title && roundTitleComponent(round.title, roundIdx)}
@@ -64,9 +64,6 @@ const SingleElimination = ({
   ));
 
   if (isResponsive) {
-    // Since SwipeableViewsProps have an issue that it uses ref inside of it, We need to remove ref from the object
-    const swipeable = useSwipeable(swipeableProps);
-
     return (
       <Bracket className={bracketClassName} dir={rtl ? 'rtl' : 'ltr'} mobileBreakpoint={mobileBreakpoint}>
         <div {...swipeable}>{data}</div>
