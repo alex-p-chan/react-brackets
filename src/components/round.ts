@@ -1,8 +1,9 @@
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 
 export interface RoundProps {
   seeds: any[];
-  title: string;
+  title: ReactNode;
   [key: string]: any;
 }
 
