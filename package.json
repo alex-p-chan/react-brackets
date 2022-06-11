@@ -1,6 +1,6 @@
 {
   "name": "react-brackets",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "description": "React component to render dynamic bracket UI",
   "author": "mohux",
   "license": "MIT",
@@ -24,8 +24,8 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "react": "^17.0.2",
-    "react-swipeable": "^6.2.0",
+    "react": "^18.1.0",
+    "react-swipeable": "^7.0.0",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
@@ -56,9 +56,9 @@
     "microbundle-crl": "^0.13.10",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.4",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "^4.0.3",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-scripts": "^5.0.1",
     "typescript": "^3.7.5"
   },
   "files": [
@@ -72,7 +72,7 @@
     "react-tournaments"
   ],
   "dependencies": {
-    "react-swipeable": "^6.2.0",
+    "react-swipeable": "^7.0.0",
     "styled-components": "^5.3.3"
   }
 }
