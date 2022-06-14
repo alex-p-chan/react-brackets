@@ -14,6 +14,7 @@ interface BreakPoint {
 export const Bracket = styled.div<BreakPoint>(
   (props) => `
   display: flex;
+  justify-content: center;
   flex-direction: row;
   @media (max-width: ${props.mobileBreakpoint}px) {
     flex-direction: column;
