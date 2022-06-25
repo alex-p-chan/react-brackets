@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
-import { Seed, SeedItem, SeedTeam, SeedTime } from '../components/seed';
-import { RoundTitle } from '../components/round';
 import { RenderSeedProps } from '../brackets';
+import { RoundTitle } from '../components/round';
+import { Seed, SeedItem, SeedTeam, SeedTime } from '../components/seed';
 
 /* ------------------------- default title component ------------------------ */
 export const renderTitle = (title: ReactNode) => <RoundTitle>{title}</RoundTitle>;
@@ -12,8 +12,8 @@ export const renderSeed = ({ seed, breakpoint }: RenderSeedProps) => {
     <Seed mobileBreakpoint={breakpoint}>
       <SeedItem>
         <div>
-          <SeedTeam>{seed.teams?.[0]?.name || '-----------'}</SeedTeam>
-          <SeedTeam>{seed.teams?.[1]?.name || '-----------'}</SeedTeam>
+          <SeedTeam isAdvancing={seed.teams?.[0]?.isAdvancing}>{seed.teams?.[0]?.name || '-----------'}</SeedTeam>
+          <SeedTeam isAdvancing={seed.teams?.[0]?.isAdvancing}>{seed.teams?.[1]?.name || '-----------'}</SeedTeam>
         </div>
       </SeedItem>
       <SeedTime mobileBreakpoint={breakpoint}>{seed.date}</SeedTime>

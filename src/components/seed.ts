@@ -3,6 +3,9 @@ import styled from 'styled-components';
 export interface SeedProps {
   mobileBreakpoint?: number;
 }
+export interface SeedTeamProps {
+  isAdvancing?: boolean;
+}
 export interface SeedTimeProps {
   mobileBreakpoint?: number;
 }
@@ -18,14 +21,17 @@ export const SeedItem = styled.div`
   position: relative;
 `;
 
-export const SeedTeam = styled.div`
+export const SeedTeam = styled.div<SeedTeamProps>(
+  (props) => `
   padding: 0.3rem 0.5rem;
+  outline: ${props.isAdvancing ? 'solid 2px rgb(255 209 102)' : 'none'};
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-radius: 0.2em;
   align-items: center;
-`;
+`
+);
 
 export const SeedTime = styled.div<SeedTimeProps>(
   (props) => `
