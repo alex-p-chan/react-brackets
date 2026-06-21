@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import styled from 'styled-components';
+import { shouldForwardProp } from '../utils/shouldForwardProp';
 
 export interface RoundProps {
   seeds: any[];
@@ -11,7 +12,7 @@ interface BreakPoint {
   mobileBreakpoint?: number;
 }
 
-export const Bracket = styled.div<BreakPoint>(
+export const Bracket = styled.div.withConfig({ shouldForwardProp })<BreakPoint>(
   (props) => `
   display: flex;
   justify-content: center;
@@ -22,7 +23,7 @@ export const Bracket = styled.div<BreakPoint>(
   `
 );
 
-export const Round = styled.div<BreakPoint>(
+export const Round = styled.div.withConfig({ shouldForwardProp })<BreakPoint>(
   (props) => `
   flex: 0;
   // min-width:300px;

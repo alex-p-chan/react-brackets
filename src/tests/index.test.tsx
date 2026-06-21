@@ -1,4 +1,4 @@
-import '@testing-library/jest-dom';
+import { expect, test } from 'vitest';
 import React from 'react';
 import { Bracket, RoundProps } from '..';
 import { render } from '@testing-library/react';
@@ -67,7 +67,7 @@ test('Works with custom seed', () => {
     },
   ];
 
-  const RenderSeed = (seed: any) => {
+  const RenderSeed = ({ seed }: any) => {
     return (
       <div>
         <div>{seed.teams[0]?.name}</div>

@@ -1,65 +1,64 @@
 {
   "name": "react-brackets",
-  "version": "0.4.11",
+  "version": "0.5.0",
   "description": "React component to render dynamic bracket UI",
   "author": "mohux",
   "license": "MIT",
   "repository": "mohux/react-brackets",
   "main": "dist/index.js",
-  "module": "dist/index.modern.js",
+  "module": "dist/index.mjs",
   "source": "src/index.tsx",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
   "engines": {
-    "node": ">=10"
+    "node": ">=18"
   },
   "scripts": {
-    "build": "microbundle-crl --no-compress --format modern,cjs",
-    "start": "microbundle-crl watch --no-compress --format modern,cjs",
-    "prepare": "run-s build",
+    "build": "tsup",
+    "start": "tsup --watch",
+    "prepare": "npm run build",
     "test": "run-s test:unit test:lint test:build",
-    "test:build": "run-s build",
+    "test:build": "npm run build",
     "test:lint": "eslint .",
-    "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
-    "test:watch": "react-scripts test --env=jsdom",
-    "predeploy": "cd example && yarn install && yarn run build",
-    "deploy": "gh-pages -d example/build"
+    "test:unit": "vitest run",
+    "test:watch": "vitest"
   },
   "peerDependencies": {
-    "react": "^18.1.0",
+    "react": "^18.0.0 || ^19.0.0",
     "react-swipeable": "^7.0.0",
-    "styled-components": "^5.3.3"
+    "styled-components": "^6.0.0"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.0.4",
-    "@testing-library/user-event": "^12.1.4",
-    "@types/jest": "^26.0.13",
-    "@types/node": "^12.12.38",
-    "@types/react": "^16.9.27",
-    "@types/react-dom": "^16.9.7",
-    "@types/react-swipeable-views": "^0.13.0",
-    "@types/styled-components": "^5.1.2",
-    "@typescript-eslint/eslint-plugin": "^2.26.0",
-    "@typescript-eslint/parser": "^2.26.0",
-    "babel-eslint": "^10.0.3",
-    "cross-env": "^7.0.2",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.7.0",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-config-standard-react": "^9.2.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.17.0",
-    "eslint-plugin-standard": "^4.0.1",
-    "gh-pages": "^2.2.0",
-    "microbundle-crl": "^0.13.10",
+    "@eslint/js": "^9.39.4",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.2",
+    "eslint": "^9.39.4",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.6.0",
+    "jsdom": "^26.1.0",
+    "microbundle": "^0.15.1",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.0.4",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "react-scripts": "^5.0.1",
-    "typescript": "^3.7.5"
+    "prettier": "^3.8.4",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.61.1",
+    "vitest": "^4.1.9"
   },
   "files": [
     "dist"
@@ -72,7 +71,7 @@
     "react-tournaments"
   ],
   "dependencies": {
-    "react-swipeable": "^7.0.0",
-    "styled-components": "^5.3.3"
+    "react-swipeable": "^7.0.2",
+    "styled-components": "^6.4.2"
   }
 }

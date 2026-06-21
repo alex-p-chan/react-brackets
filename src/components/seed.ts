@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { shouldForwardProp } from '../utils/shouldForwardProp';
 
 export interface SeedProps {
   mobileBreakpoint?: number;
@@ -21,7 +22,7 @@ export const SeedItem = styled.div`
   position: relative;
 `;
 
-export const SeedTeam = styled.div<SeedTeamProps>(
+export const SeedTeam = styled.div.withConfig({ shouldForwardProp })<SeedTeamProps>(
   (props) => `
   padding: 0.3rem 0.5rem;
   outline: ${props.isAdvancing ? 'solid 2px rgb(255 209 102)' : 'none'};
@@ -33,7 +34,7 @@ export const SeedTeam = styled.div<SeedTeamProps>(
 `
 );
 
-export const SeedTime = styled.div<SeedTimeProps>(
+export const SeedTime = styled.div.withConfig({ shouldForwardProp })<SeedTimeProps>(
   (props) => `
 margin-top: 2px;
 font-size: 12px;
@@ -52,7 +53,7 @@ height: 0;
  * The best behavior in such case is, to check if the next round seeds matches the current round seeds
  */
 
-export const SingleLineSeed = styled.div<SeedProps>(
+export const SingleLineSeed = styled.div.withConfig({ shouldForwardProp })<SeedProps>(
   (props) => `
 padding: 1em 1.5em;
 min-width: 225px;
@@ -92,7 +93,7 @@ font-size: 14px;
 `
 );
 
-export const Seed = styled.div<SeedProps>(
+export const Seed = styled.div.withConfig({ shouldForwardProp })<SeedProps>(
   (props) => `
   padding: 1em 1.5em;
   min-width: 225px;
