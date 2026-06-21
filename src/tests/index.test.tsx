@@ -84,3 +84,23 @@ test('Works with custom seed', () => {
   expect(getAllByText('Team 1').length).toBe(2);
   expect(getByText('Team 2')).toBeInTheDocument();
 });
+
+test('Advancing team is distinguished with a non-color cue (bold weight)', () => {
+  const rounds: RoundProps[] = [
+    {
+      title: 'Round 1',
+      seeds: [
+        {
+          id: 1,
+          teams: [{ name: 'Winner', isAdvancing: true }, { name: 'Loser' }],
+        },
+      ],
+    },
+  ];
+
+  const { getByText } = render(<Bracket rounds={rounds} />);
+
+  // Advancing teams must be perceivable without relying on color alone (WCAG 1.4.1).
+  expect(getByText('Winner')).toHaveStyle({ 'font-weight': '600' });
+  expect(getByText('Loser')).toHaveStyle({ 'font-weight': '400' });
+});
