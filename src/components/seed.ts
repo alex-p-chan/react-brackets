@@ -26,11 +26,12 @@ export const SeedTeam = styled.div.withConfig({ shouldForwardProp })<SeedTeamPro
   (props) => `
   padding: 0.3rem 0.5rem;
   outline: ${props.isAdvancing ? 'solid 2px rgb(255 209 102)' : 'none'};
+  // Non-color cue so advancing teams stay distinguishable without relying on color alone (WCAG 1.4.1).
+  font-weight: ${props.isAdvancing ? '600' : '400'};
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-radius: 0.2em;
-  align-items: center;
 `
 );
 
